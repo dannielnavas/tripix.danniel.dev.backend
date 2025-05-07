@@ -8,7 +8,7 @@ module.exports = {
   development: {
     url: URI,
     dialect: 'postgres',
-    logging: console.log, // Cambiado de true a console.log
+    logging: console.log,
     dialectOptions: {
       ssl: {
         require: true,
