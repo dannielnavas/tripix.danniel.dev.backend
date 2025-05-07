@@ -23,6 +23,11 @@ const UserSchema = {
     type: DataTypes.STRING,
     defaultValue: 'free',
   },
+  tokens: {
+    allowNull: false,
+    type: DataTypes.INTEGER,
+    defaultValue: 4,
+  },
   recoveryToken: {
     field: 'recovery_token',
     allowNull: true,
