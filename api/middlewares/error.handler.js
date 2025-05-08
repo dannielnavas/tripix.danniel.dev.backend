@@ -3,7 +3,7 @@ const { ValidationError } = require('sequelize');
 function logErrors(err, req, res, next) {
   // aquí se envia a un servicio de log como sentry
   console.error(err.stack);
-  next(err); // si no se envía nada es porque es exitoso
+  next(err);
 }
 
 function errorHandler(err, req, res, next) {
@@ -11,7 +11,6 @@ function errorHandler(err, req, res, next) {
     message: err.message,
     stack: err.stack,
   });
-  // next(); no se usa porque es el final del proceso
 }
 
 function boomErrorHandler(err, req, res, next) {
