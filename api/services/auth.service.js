@@ -1,6 +1,6 @@
-const boom = require('@hapi/boom');
-const { config } = require('./../config/config');
-const UserServices = require('./user.service');
+import boom from '@hapi/boom';
+import { config } from './../config/config.js';
+import UserServices from './user.service.js';
 
 const service = new UserServices();
 
@@ -26,4 +26,4 @@ class AuthServices {
   }
 }
 
-module.exports = AuthServices;
+export default AuthServices;

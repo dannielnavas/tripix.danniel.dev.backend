@@ -1,4 +1,4 @@
-const { ValidationError } = require('sequelize');
+import { ValidationError } from 'sequelize';
 
 function logErrors(err, req, res, next) {
   // aquí se envia a un servicio de log como sentry
@@ -33,4 +33,4 @@ function ormErrorHandler(err, req, res, next) {
   next(err);
 }
 
-module.exports = { logErrors, errorHandler, boomErrorHandler, ormErrorHandler };
+export { boomErrorHandler, errorHandler, logErrors, ormErrorHandler };

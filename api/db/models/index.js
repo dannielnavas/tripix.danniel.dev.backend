@@ -1,3 +1,3 @@
 function setupModels(sequelize) {}
 
-module.exports = setupModels;
+export default setupModels;

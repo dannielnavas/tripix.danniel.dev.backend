@@ -1,9 +1,8 @@
-const express = require('express');
-const passport = require('passport');
+import express from 'express';
+import passport from 'passport';
+import AuthServices from './../services/auth.service.js';
 
-const AuthServices = require('./../services/auth.service');
 const service = new AuthServices();
-
 const router = express.Router();
 
 router.post(
@@ -19,4 +18,4 @@ router.post(
   },
 );
 
-module.exports = router;
+export default router;

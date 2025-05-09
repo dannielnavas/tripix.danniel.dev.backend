@@ -1,7 +1,6 @@
-const passport = require('passport');
-
-const localStrategy = require('./strategies/local.strategy');
-const jwtStrategy = require('./strategies/jwt.strategy');
+import passport from 'passport';
+import jwtStrategy from './strategies/jwt.strategy.js';
+import localStrategy from './strategies/local.strategy.js';
 
 passport.use(localStrategy);
 passport.use(jwtStrategy);

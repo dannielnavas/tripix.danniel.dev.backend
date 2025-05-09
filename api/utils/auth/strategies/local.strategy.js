@@ -1,5 +1,5 @@
-const { Strategy } = require('passport-local');
-const AuthServices = require('./../../../services/auth.service');
+import { Strategy } from 'passport-local';
+import AuthServices from './../../../services/auth.service.js';
 
 const service = new AuthServices();
 
@@ -17,4 +17,4 @@ const localStrategy = new Strategy(
   },
 );
 
-module.exports = localStrategy;
+export default localStrategy;

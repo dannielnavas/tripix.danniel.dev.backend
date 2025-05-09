@@ -1,16 +1,15 @@
 'use strict';
 
-const express = require('express');
-const routerApi = require('./routes');
-const {
-  logErrors,
-  errorHandler,
+import cors from 'cors';
+import express from 'express';
+import {
   boomErrorHandler,
+  errorHandler,
+  logErrors,
   ormErrorHandler,
-} = require('./middlewares/error.handler');
-const { checkApiKey } = require('./middlewares/auth.handler');
-
-const cors = require('cors');
+} from './middlewares/error.handler.js';
+import routerApi from './routes/index.js';
+import './utils/auth/index.js';
 
 const app = express();
 
@@ -26,7 +25,6 @@ const options = {
   },
 };
 app.use(cors());
-require('./utils/auth');
 
 routerApi(app);
 

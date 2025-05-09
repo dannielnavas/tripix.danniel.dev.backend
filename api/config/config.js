@@ -1,4 +1,4 @@
-require('dotenv').config();
+import 'dotenv/config';
 
 const config = {
   env: process.env.NODE_ENV || 'production',
@@ -13,4 +13,4 @@ const config = {
   jwtSecret: process.env.JWT_SECRET,
 };
 
-module.exports = { config };
+export { config };
