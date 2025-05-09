@@ -1,10 +1,8 @@
-'use strict';
-
 import { USER_TABLE, UserSchema } from '../models/user.model.js';
 
 /** @type {import('sequelize-cli').Migration} */
 export default {
-  async up(queryInterface, Sequelize) {
+  async up(queryInterface) {
     /**
      * Add altering commands here.
      *
@@ -14,7 +12,7 @@ export default {
     await queryInterface.createTable(USER_TABLE, UserSchema);
   },
 
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface) {
     /**
      * Add reverting commands here.
      *

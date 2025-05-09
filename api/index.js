@@ -1,5 +1,3 @@
-'use strict';
-
 import cors from 'cors';
 import express from 'express';
 import {
@@ -14,16 +12,7 @@ import './utils/auth/index.js';
 const app = express();
 
 app.use(express.json()); // implementar para los post
-const whitelist = ['http://localhost:3000', 'https://myapp.co', '*'];
-const options = {
-  origin: (origin, callback) => {
-    if (whitelist.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-};
+
 app.use(cors());
 
 routerApi(app);
