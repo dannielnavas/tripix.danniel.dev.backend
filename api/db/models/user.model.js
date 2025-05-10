@@ -3,35 +3,53 @@ import { DataTypes, Model, Sequelize } from 'sequelize';
 const USER_TABLE = 'users';
 
 const UserSchema = {
-  id: {
+  userId: {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
+    field: 'user_id',
     type: DataTypes.INTEGER,
   },
-  name: {
+  googleId: {
     allowNull: false,
     type: DataTypes.STRING,
+    unique: true,
+    field: 'google_id',
   },
   email: {
     allowNull: false,
     type: DataTypes.STRING,
     unique: true,
   },
+  fullName: {
+    allowNull: false,
+    type: DataTypes.STRING,
+    field: 'full_name',
+  },
+  profilePicture: {
+    allowNull: false,
+    type: DataTypes.STRING,
+    field: 'profile_picture',
+  },
   role: {
     allowNull: false,
     type: DataTypes.STRING,
     defaultValue: 'free',
   },
-  tokens: {
+  subscriptionPlanId: {
     allowNull: false,
     type: DataTypes.INTEGER,
-    defaultValue: 4,
+    field: 'subscription_plan_id',
   },
-  createdAt: {
+  tokensRemaining: {
+    allowNull: false,
+    type: DataTypes.INTEGER,
+    field: 'tokens_remaining',
+  },
+  tokensResetDate: {
     allowNull: false,
     type: DataTypes.DATE,
-    field: 'create_at',
+    field: 'tokens_reset_date',
     defaultValue: Sequelize.NOW,
   },
 };
@@ -42,7 +60,9 @@ class User extends Model {
       sequelize,
       tableName: USER_TABLE,
       modelName: 'User',
-      timestamps: false,
+      timestamps: true,
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
     };
   }
 }
