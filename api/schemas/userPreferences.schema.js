@@ -1,30 +1,38 @@
 import Joi from 'joi';
 
-const preference_id = Joi.number().integer();
 const user_id = Joi.number().integer();
-const preferred_destinations = Joi.array().items(Joi.string().min(3));
-const budget_range = Joi.number().integer().min(0);
-const travel_style = Joi.string().min(3);
-const accommodation_preferences = Joi.string().min(3);
-const activity_preferences = Joi.string().min(3);
+const google_id = Joi.string();
+const email = Joi.string();
+const full_name = Joi.string();
+const profile_picture = Joi.string();
+const role = Joi.string();
+const subscription_plan_id = Joi.number().integer();
+const tokens_remaining = Joi.number().integer();
+const tokens_reset_date = Joi.date();
 
 const createUserPreferenceSchema = Joi.object({
   user_id: user_id.required(),
-  preferred_destinations: preferred_destinations.required(),
-  budget_range: budget_range.required(),
-  travel_style: travel_style.required(),
-  accommodation_preferences: accommodation_preferences.required(),
-  activity_preferences: activity_preferences.required(),
+  google_id: google_id.required(),
+  email: email.required(),
+  full_name: full_name.required(),
+  profile_picture: profile_picture.required(),
+  role: role.required(),
+  subscription_plan_id: subscription_plan_id.required(),
+  tokens_remaining: tokens_remaining.required(),
+  tokens_reset_date: tokens_reset_date.required(),
 });
 
 const updateUserPreferenceSchema = Joi.object({
-  preferred_destinations: preferred_destinations,
-  budget_range: budget_range,
-  travel_style: travel_style,
+  user_id: user_id.required(),
+  subscription_plan_id: subscription_plan_id.required(),
+  tokens_remaining: tokens_remaining.required(),
+  tokens_reset_date: tokens_reset_date.required(),
+  created_at: created_at.required(),
+  updated_at: updated_at.required(),
 });
 
 const getUserPreferenceSchema = Joi.object({
-  preference_id: preference_id.required(),
+  user_id: user_id.required(),
 });
 
 export {
